@@ -47,6 +47,14 @@ export default {
     onChange (val) {
       this.$store.state.color = val.hex
       this.$store.commit()
+    },
+    blobToDataURL (blob) {
+      var a = new FileReader()
+      a.onload = function (e) {
+        this.$store.state.image = e.target.result
+        this.$store.commit()
+      }
+      a.readAsDataURL(blob)
     }
   },
   computed: {
