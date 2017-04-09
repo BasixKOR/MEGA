@@ -1,7 +1,7 @@
 <template>
   <div class="row" id="color-row">
-    <div class="col-md-4 title">{{ year }}</div>
-    <div class="col-md-6 clear">
+    <div class="col-4 title">{{ year }}</div>
+    <div class="col-6 clear">
       <color v-for="hex in colors" :color="hex" :key="hex" />
     </div>
   </div>
