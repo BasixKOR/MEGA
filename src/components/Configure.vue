@@ -9,6 +9,7 @@
       <color-row year="2009" :colors="color2009" />
       <br>
       <b-form-file v-model="file" ></b-form-file>
+      <br>
     </div>
     <div class="col-md-5">
       <h1>이미지를 선택하세요.</h1>
@@ -73,14 +74,5 @@ export default {
 }
 .clear {
   clear: left;
-}
-.custom-file-control::after {
-  content: '파일이 없어요..' !important;
-}
-.custom-file-control::before {
-  content: '파일 고르기' !important;
-}
-.custom-file .drop-here::before {
-  content: '파일을 드래그하세요' !important;
 }
 </style>
