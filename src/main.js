@@ -19,6 +19,7 @@ Vue.use(Vuex)
 var store = new Vuex.Store({
   state: {
     year: 2014,
+    image: '',
     color: '#1DA1F2'
   },
   getters: {
