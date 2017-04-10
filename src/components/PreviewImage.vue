@@ -1,5 +1,5 @@
 <template>
-  <img :src="imgSrc" class="img-fluid img-thumbnail" :style="background" id="preview">
+  <img :src="imgSrc" class="img-fluid" :style="background" id="preview">
 </template>
 
 <script>
