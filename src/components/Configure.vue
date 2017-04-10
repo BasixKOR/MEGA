@@ -7,13 +7,17 @@
       <color-row year="2014" :colors="color2014" />
       <color-row year="2010" :colors="color2010" />
       <color-row year="2009" :colors="color2009" />
+      <br>
+      <b-form-file v-model="file" @input="blobToDataURL" />
+      <b-button variant="danger" @click="remove">삭제</b-button>
+      <br>
     </div>
     <div class="col-md-5">
       <h1>이미지를 선택하세요.</h1>
       <preview-image />
       <b-form-select v-model="selected" 
                    :options="options"
-                   calss="mb-3" />
+                   class="mb-3"/>
     </div>
   </div>
 </template>
@@ -26,7 +30,10 @@ let data = {
   color2009: ['#B6D6E8', '#346A85', '#7F3485', '#8D2B41', '#EDA43D', '#AFE356', '#348569'],
 
   // Select
-  options: ['2014', '2010', '2009']
+  options: ['2014', '2010', '2009'],
+
+  // File
+  file: undefined
 }
 
 import Color from './Color'
@@ -40,6 +47,21 @@ export default {
   methods: {
     onChange (val) {
       this.$store.state.color = val.hex
+      this.$store.commit()
+    },
+    blobToDataURL (blob) {
+      let self = this
+      var a = new FileReader()
+      a.onload = e => {
+        console.log(e.target.result)
+        self.$store.state.image = e.target.result
+        self.$store.commit()
+      }
+      a.readAsDataURL(blob)
+    },
+    remove () {
+      this.file = undefined
+      this.$store.state.image = null
       this.$store.commit()
     }
   },
