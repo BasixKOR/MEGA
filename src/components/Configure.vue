@@ -18,7 +18,7 @@
       <b-form-select v-model="selected" 
                    :options="options"
                    class="mb-3"/>
-      <p v-show="selected == '2017'">2017 버전은 현재 베타로 제공되는 서비스로, 못생길 수 있습니다.</p>
+      <p v-show="selected == '2017'">2017 버전은 현재 베타로 제공되는 서비스로, 못생길 수 있습니다. 혹시 이걸 더 예쁘게 만들어주실 분은 GitHub에 방문해주세요.</p>
     </div>
   </div>
 </template>
