@@ -16,3 +16,9 @@ export default {
   }
 }
 </script>
+
+<style>
+#preview {
+  background-size: cover;
+}
+</style>
