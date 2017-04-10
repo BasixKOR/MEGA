@@ -29,7 +29,7 @@ var store = new Vuex.Store({
     },
     background (state) {
       if (!_.isEmpty(state.image)) {
-        return { 'background-image': state.image }
+        return { 'background-image': `url(${state.image})` }
       } else {
         return { 'background-color': state.color }
       }
