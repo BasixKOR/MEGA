@@ -18,6 +18,7 @@
       <b-form-select v-model="selected" 
                    :options="options"
                    class="mb-3"/>
+      <p v-show="selected == '2017'">2017 버전은 현재 베타로 제공되는 서비스로, 못생길 수 있습니다.</p>
     </div>
   </div>
 </template>
