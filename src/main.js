@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import _ from 'lodash'
 
 Vue.config.productionTip = false
 
@@ -25,6 +26,13 @@ var store = new Vuex.Store({
   getters: {
     colorPickerObject (state) {
       return { hex: state.color }
+    },
+    background (state) {
+      if (_.isEmpty(state.image)) {
+        return { 'background-image': state.image }
+      } else {
+        return { 'background-color': state.color }
+      }
     }
   },
   mutations: {
@@ -36,7 +44,8 @@ var store = new Vuex.Store({
 
 // Offline-First
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-OfflinePluginRuntime.install()
+console.log(process.env.NODE_ENV)
+if (process.env.NODE_ENV === 'production') OfflinePluginRuntime.install()
 
 /* eslint-disable no-new */
 new Vue({

@@ -8,7 +8,8 @@
       <color-row year="2010" :colors="color2010" />
       <color-row year="2009" :colors="color2009" />
       <br>
-      <b-form-file v-model="file" ></b-form-file>
+      <b-form-file v-model="file" @input="blobToDataURL" />
+      <b-button variant="danger" @click="remove">삭제</b-button>
       <br>
     </div>
     <div class="col-md-5">
@@ -16,7 +17,7 @@
       <preview-image />
       <b-form-select v-model="selected" 
                    :options="options"
-                   calss="mb-3" />
+                   class="mb-3"/>
     </div>
   </div>
 </template>
@@ -49,12 +50,19 @@ export default {
       this.$store.commit()
     },
     blobToDataURL (blob) {
+      let self = this
       var a = new FileReader()
-      a.onload = function (e) {
-        this.$store.state.image = e.target.result
-        this.$store.commit()
+      a.onload = e => {
+        console.log(e.target.result)
+        self.$store.state.image = e.target.result
+        self.$store.commit()
       }
       a.readAsDataURL(blob)
+    },
+    remove () {
+      this.file = undefined
+      this.$store.state.image = null
+      this.$store.commit()
     }
   },
   computed: {
