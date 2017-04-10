@@ -30,7 +30,7 @@ let data = {
   color2009: ['#B6D6E8', '#346A85', '#7F3485', '#8D2B41', '#EDA43D', '#AFE356', '#348569'],
 
   // Select
-  options: ['2014', '2010', '2009'],
+  options: [{text: '2017 Custom', value: '2017'}, '2014', '2010', '2009'],
 
   // File
   file: undefined
