@@ -28,7 +28,7 @@ var store = new Vuex.Store({
       return { hex: state.color }
     },
     background (state) {
-      if (_.isEmpty(state.image)) {
+      if (!_.isEmpty(state.image)) {
         return { 'background-image': state.image }
       } else {
         return { 'background-color': state.color }
