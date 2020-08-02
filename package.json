@@ -12,7 +12,7 @@
   "dependencies": {
     "bootstrap-vue": "^0.12.0",
     "html2canvas": "^0.5.0-beta4",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "offline-plugin": "^4.6.2",
     "tinycolor2": "^1.4.1",
     "vue": "^2.2.2",
