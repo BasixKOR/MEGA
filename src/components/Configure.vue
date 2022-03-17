@@ -18,6 +18,7 @@
       <b-form-select v-model="selected" 
                    :options="options"
                    class="mb-3"/>
+      <p v-show="selected == '2017'">2017 버전은 현재 베타로 제공되는 서비스로, 못생길 수 있습니다. 혹시 이걸 더 예쁘게 만들어주실 분은 GitHub에 방문해주세요.</p>
     </div>
   </div>
 </template>
@@ -30,7 +31,7 @@ let data = {
   color2009: ['#B6D6E8', '#346A85', '#7F3485', '#8D2B41', '#EDA43D', '#AFE356', '#348569'],
 
   // Select
-  options: ['2014', '2010', '2009'],
+  options: [{text: '2017 Custom', value: '2017'}, '2014', '2010', '2009'],
 
   // File
   file: undefined
